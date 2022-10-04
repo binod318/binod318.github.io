@@ -14,6 +14,18 @@ p > b{
     font-weight: bolder;
 }
 
+/* pseudo-element example */
+p::first-letter{
+    text-transform: capitalize;
+    font-size: 1.5em;
+}
+
+/*reverse display order */
+ol.movies{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
 li > a{
     color: blue;
     text-decoration: none;
@@ -21,6 +33,11 @@ li > a{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-style: italic;
     text-transform: lowercase;
+}
+
+/* put underline in hyperlink when mouse over */
+a:hover{
+    text-decoration: underline;
 }
 
 .mood {
