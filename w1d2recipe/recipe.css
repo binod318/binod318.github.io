@@ -9,6 +9,8 @@ header > h1 {
     margin-left: auto;
     margin-right: auto;
     font-size: 22pt;
+    /*background-color: hsla(120, 60%, 70%, 0.3);*/
+    background-image: linear-gradient(to bottom right, hsla(120, 60%, 70%, 0.3), yellow, red);
 }
 
 header > p {
