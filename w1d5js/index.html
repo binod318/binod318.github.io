@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascrip functions</title>
+    <script src="functions.js"></script>
+    <script>
+        console.log("Expected output of max(5,4) is 5  " + myFunctionTest(5, max(5, 4)));
+
+        console.log("Expected output of maxOfThree(55,4,44) is 55  " + myFunctionTest(55, maxOfThree(55, 4, 44)));
+
+        console.log("Expected output of isVowel('a') is true  " + myFunctionTest(true, isVowel('a')));
+        console.log("Expected output of isVowel('A') is true  " + myFunctionTest(true, isVowel('A')));
+        console.log("Expected output of isVowel('q') is false  " + myFunctionTest(false, isVowel('q')));
+
+        console.log("Expected output of sum([3,5,7]) is 15  " + myFunctionTest(15, sum([3,5,7])));
+        console.log("Expected output of sum([0,1,2,3,4,5,6]) is 21  " + myFunctionTest(21, sum([0,1,2,3,4,5,6])));
+
+        console.log("Expected output of multiply([3,5,7]) is 105  " + myFunctionTest(105, multiply([3,5,7])));
+
+        console.log("Expected output of reverse('Good Morning') is gninroM dooG  " + myFunctionTest('gninroM dooG', reverse('Good Morning')));
+
+        console.log("Expected output of findLongestWord(['Hello', 'ok', 'kathmandu', 'gorkha']) is 9  " + myFunctionTest(9, findLongestWord(['Hello', 'ok', 'kathmandu', 'gorkha'])));
+
+        console.log("Expected output of filterLongWords(['Hello', 'ok', 'kathmandu', 'gorkha'], 5) is ['kathmandu', 'gorkha']  " + myFunctionTest(['kathmandu','gorkha'], filterLongWords(['Hello', 'ok', 'kathmandu', 'gorkha'], 5)));
+
+        jsFiddleFunctions();
+    </script>
+</head>
+<body>
+    <h2>
+        Look in the Chrome developer console to see the output. CTRL_SHIFT_J <br />
+        Or on Firefox with CTRL_SHIFT_K
+    </h2>
+</body>
+</html>
