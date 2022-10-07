@@ -121,3 +121,8 @@ footer > h3 {
     display: inline-block;
     line-height: normal;
 }
+
+.validate {
+    margin: 10px;
+    float: right;
+}

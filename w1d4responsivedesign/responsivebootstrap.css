@@ -60,3 +60,8 @@ ul > li {
     display: contents;
     line-height: normal;
 }
+
+.validate {
+    margin: 10px;
+    float: right;
+}
