@@ -105,27 +105,27 @@ function filterLongWords(arr, size){
 function jsFiddleFunctions(){
     const a = [1,3,5,3,3]; 
 
-    console.log('This is the output for JSFiddle code ..');
-    console.log("Input value is: [1,3,5,3,3]")
+    console.log('Following is the output for JSFiddle code ..');
+
     //multiple by 10
     const d4 = a.map(function(elem, i, array){
         return elem * 10;
     })
     
-    console.log('Multiple by 10 output is: ' + d4);
-
+    console.log("Expected output of multiple by 10 using map for [1,3,5,3,3] is [10,30,50,30,30]  " + myFunctionTest([10,30,50,30,30], d4));
+    
     //return elements with 3 value
     const d5 = a.filter(function(elem, i, array){
         if(elem === 3)
         return true
     })
     
-    console.log('Return elements with only element 3 is: ' + d5);
+    console.log("Expected output of return only 3 element using filter for [1,3,5,3,3] is [3,3,3]  " + myFunctionTest([3,3,3], d5));
 
     //return the product of all elements
     const d6 = a.reduce(function(prevValue, elem, i, array){
         return prevValue * elem;
     }, 1)
 
-    console.log('Product of all element is: ' + d6);
+    console.log("Expected output of product of all element using map for [1,3,5,3,3] is 135 " + myFunctionTest(135, d6));
 }
