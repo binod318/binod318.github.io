@@ -26,6 +26,23 @@ function max(a, b) {
         return b;
 }
 
+/*
+max = function (a, b) {
+    if(a > b)
+        return a;
+    else
+        return b;
+}
+
+max = (a, b) => {
+    if(a > b)
+        return a;
+    else
+        return b;
+}
+
+*/
+
 function maxOfThree(a,b,c){
     return (max(max(a,b),c));
 }
