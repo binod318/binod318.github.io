@@ -47,6 +47,9 @@ h1 {
 
 .content {
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 700pt;
 }
 
 .review {
