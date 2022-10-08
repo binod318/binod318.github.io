@@ -19,7 +19,8 @@ function myFunctionTest(expected, found) {
     }
 }
 
-function max(a, b) {
+//if vaar or let is not used then it is global scope variable
+max = function (a, b) {
     if(a > b)
         return a;
     else
@@ -27,7 +28,7 @@ function max(a, b) {
 }
 
 /*
-max = function (a, b) {
+function max(a, b) {
     if(a > b)
         return a;
     else
@@ -145,4 +146,17 @@ function jsFiddleFunctions(){
     }, 1)
 
     console.log("Expected output of product of all element using map for [1,3,5,3,3] is 135 " + myFunctionTest(135, d6));
+}
+
+const factorial = function fac(n) {
+    return n < 2 ? 1 : n * fac(n-1);
+}
+
+function getSmallest(a,b,c){
+    if(a.length < b.length && a.length < c.length)
+        return a;
+    if(b.length < a.length && b.length < a.length)
+        return b;
+    else 
+        return c;
 }
