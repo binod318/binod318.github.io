@@ -1,4 +1,5 @@
 window.onload = function() {
+    // to resolve missing "use strict" statement jshint error
     "use strict";
     var timer = null;
     var speed = 250;
