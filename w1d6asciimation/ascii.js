@@ -61,7 +61,7 @@ window.onload = function() {
                 frame = 0;
             }
     
-            txtarea.style.fontSize = size;
+            txtarea.className = size;
             txtarea.value = parts[frame];
         }
 
