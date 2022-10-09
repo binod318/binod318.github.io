@@ -1,5 +1,4 @@
 window.onload = function() {
-    var timer = null;
     var speed = 250;
     var frame = 0;
     var size = document.getElementById("fontsize").value;
