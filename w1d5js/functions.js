@@ -160,3 +160,20 @@ function getSmallest(a,b,c){
     else 
         return c;
 }
+
+function earliestSpace(a, b, c) {
+    if(a.indexOf(" ") < b.indexOf(" ") && a.indexOf(" ") < c.indexOf(" ")) 
+        return a;
+    else if(b.indexOf(" ") < c.indexOf(" ") && b.indexOf(" ") < a.indexOf(" ")) 
+        return b;
+    else
+        return c;
+}
+
+function sumAnyNumberOfArgument() {
+    let sum = 0;
+    for(const i of arguments){
+        sum +=  i;
+    }
+    return sum;
+}
