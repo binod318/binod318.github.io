@@ -31,6 +31,7 @@ window.onload = function() {
     // attach event handler for font size change
     document.getElementById("fontsize").onchange = function() {
         size = document.getElementById("fontsize").value;
+        document.getElementById("text-area").className = size;
         resetInterval();
     };
 
@@ -50,7 +51,7 @@ window.onload = function() {
     // function to display different text in textarea
     function display(state) {
         let txtarea = document.getElementById("text-area");
-
+        
         // when idle then all the animation text should be displayed
         if(state === "idle"){
             txtarea.value = ANIMATIONS[document.getElementById("animation").value];
@@ -61,7 +62,6 @@ window.onload = function() {
                 frame = 0;
             }
     
-            txtarea.className = size;
             txtarea.value = parts[frame];
         }
 
