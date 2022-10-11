@@ -177,3 +177,15 @@ function sumAnyNumberOfArgument() {
     }
     return sum;
 }
+
+function sumWithMore(x, y, ...more){
+    let total=x+y;
+    console.log(more);
+    for(const i of more)
+        total += i;
+    
+    return total;
+}
+
+let emailMatch1 = new RegExp("^[a-zA-Z_\-]+@(([a-zA-Z_\-])+\.)+[a-zA-Z]{2,}$"); 
+let emailMatch2 = /^[a-zA-Z_-]+@(([a-zA-Z_-])+\.)+[a-zA-Z]{2,}$/;
