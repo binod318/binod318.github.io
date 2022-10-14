@@ -19,6 +19,10 @@
         <input id="password" type="password" required 
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}"
             title="Please fill the passoword at least 10 characters long in combination of numbers, lower case letters and upper case letters.">
+        <label>Phone</label>
+        <input id="phone" type="text" required 
+            pattern="(\+1)?\s?\d{3}\s?\d{3}\s?\d{4}"
+            title="Please fill the url starting with either http:// or https://">
         <label>Url</label>
         <input id="url" type="text" required 
             pattern="https?://.*"

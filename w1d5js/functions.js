@@ -187,5 +187,19 @@ function sumWithMore(x, y, ...more){
     return total;
 }
 
+function longestSpaceWithMore(...more){
+
+    // const result = more.filter(e => e.indexOf(' ') < 0)
+    //                     .map(e => e.length)
+    //                     .reverse()
+    //                     .find(e => e > 0);
+
+    return result = more.filter(e => e.indexOf(' ') < 0)
+                        .map(e => e.length)
+                        .reduce( (accum, elem) => elem > accum ? elem : accum, 0); 
+                        // if second element is greate then return second element else return first
+
+}
+
 let emailMatch1 = new RegExp("^[a-zA-Z_\-]+@(([a-zA-Z_\-])+\.)+[a-zA-Z]{2,}$"); 
 let emailMatch2 = /^[a-zA-Z_-]+@(([a-zA-Z_-])+\.)+[a-zA-Z]{2,}$/;
