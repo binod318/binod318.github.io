@@ -1,3 +1,5 @@
+"use strict";
+
 describe("Account", function () {
 
     describe("check the account info after create", function (){
