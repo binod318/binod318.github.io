@@ -19,16 +19,16 @@ $(function(){
         let left = 'auto';
 
         if(index % 4 === 0){
-            left = 600 - (6 * index) + 30 + 'px';
+            left = 850 - (6 * index) + 30 + 'px';
         }
         else if (index % 4 === 1){
-            left = 600 + (6 * index) - 30 + 'px';
+            left = 850 + (6 * index) - 30 + 'px';
         }
         else if (index % 4 === 2){
-            mtop = 300 - (6 * index) + 20 + 'px';
+            mtop = 350 - (6 * index) + 20 + 'px';
         }
         else{
-            mtop = 300 + (6 * index) - 20 + 'px';
+            mtop = 350 + (6 * index) - 20 + 'px';
         }
 
         //create new circle
@@ -45,8 +45,7 @@ $(function(){
                                 .on('mouseover', mouseoverHandler)
                                 .on('mouseout', mouseoutHandler);
 
-        //add circle to container
-        $('#container').append(newElement);
+        return newElement;
 
     }
 
@@ -54,9 +53,13 @@ $(function(){
 
         //get total number of circles to draw
         const total = parseInt($('#total').val());
+        let elements = [];
         for(let i = 0; i<total; i++){
-            drawCircle(i);
+            elements.push(drawCircle(i));
         }
+
+        //add circle to container
+        $('#container').append(elements);
 
         //get interval to grow
         const rate = $('#rate').val();
