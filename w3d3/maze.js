@@ -11,16 +11,50 @@ $(function(){
     $('#start').on('mouseover', function(){
         $('.boundary').removeClass('youlose');
         $('#status').text('Game started...');
+        $('.example').text(`0%`);
     });
 
     $('#end').on('mouseover', function(){
-        if($('#status').text() === 'Game started'){
+        if($('#status').text().indexOf('started') > 0){
             $('#status').text('You win! :) Click the "S" to begin again.');
             alert('You win! :)');
+            $('.example').text(`100%`);
         }
     })
 
-    $('#maze').on('mouseleave', lose);
+    let lastX = 0;
+    let lastY = 0;
+    let totalX = 0;
+    let totalY = 0;
+
+    $('#maze')
+        .on('mouseleave', lose)
+        .on('mousemove', function(e){
+
+            if($('#status').text().indexOf('started') > 0){
+                if(lastX === 0){
+                    lastX = e.offsetX;
+                    lastY = e.clientY;
+                } 
+                
+                if (Math.abs(e.offsetX - lastX) > 5) {
+                    totalX = totalX + e.offsetX - lastX;
+                    lastX = e.offsetX;
+                    lastY = e.clientY;
+                } 
+                
+                if (Math.abs(lastY - e.clientY) > 5) {
+                    totalY = totalY + Math.abs(lastY - e.clientY);
+                    lastY = e.clientY;
+                }
+                percentage = (totalX + totalY) / 700 * 100;
+
+                if(percentage > 100)
+                    percentage = 100;
+
+                $('.example').text(`${Math.round(percentage)}%`);
+            }
+        });
 
     function lose(){
 
