@@ -52,7 +52,8 @@ $(function(){
                                                                             'left': left,
                                         }})
                                         .on("click", clickHandler)
-                                        .on('mouseover', mouseoverHandler)
+                                        .on('mousemove', mousemoveHandler)
+                                        // .on('mouseover', mouseoverHandler)
                                         .on('mouseout', mouseoutHandler);
 
         return newElement;
@@ -94,19 +95,33 @@ $(function(){
         $(this).hide();
     }
 
-    //mouseover event handler
-    function mouseoverHandler(){
-       timer = setInterval(() => {
-        console.log('timer');
-        let opac = parseInt($(this).css('opacity'));
-        opac = opac < 0.2 ? opac : opac - 0.1;
+    //mousemove event handler
+    function mousemoveHandler(e){
+        //total width of circle
+        const size = parseInt($('#width').val());
+        let opac = 1;
+
+        if(e.offsetX > 0 )
+            opac = 1 - e.offsetX / size;
+
         $(this).css('opacity', opac);
-       }, 250)
     }
+
+    // //mouseover event handler
+    // function mouseoverHandler(e){
+    //     //total width of circle
+    //     const size = parseInt($('#width').val());
+    
+    //    timer = setInterval(() => {
+    //                     let opac = parseInt($(this).css('opacity'));
+    //                     opac = opac < 0.2 ? opac : opac - 0.1;
+    //                     $(this).css('opacity', opac);
+    //             }, 250)
+    // }
 
     //mouseout event habdler
     function mouseoutHandler(){
-        clearInterval(timer);
+        //clearInterval(timer);
         $(this).css('opacity',1);
      }
 
