@@ -18,32 +18,42 @@ $(function(){
         let mtop = 'auto';
         let left = 'auto';
 
+        //make dynamic offset based on windows height/width
+        let height = window.innerHeight;
+        let width = window.innerWidth;
+
+        if(height > 820){
+            height = height - (height - 830);
+            width = width - (width - 1730);
+        } else {
+            height = height - (height - 830) - height/6;
+            width = width - (width - 1730) - width/4;
+        }
+
         if(index % 4 === 0){
-            left = 850 - (6 * index) + 30 + 'px';
+            left = width/2 - (6 * index) + 30 + 'px'; //850
         }
         else if (index % 4 === 1){
-            left = 850 + (6 * index) - 30 + 'px';
+            left = width/2 + (6 * index) - 30 + 'px';
         }
         else if (index % 4 === 2){
-            mtop = 350 - (6 * index) + 20 + 'px';
+            mtop = height/2 - (6 * index) + 20 + 'px'; //350
         }
         else{
-            mtop = 350 + (6 * index) - 20 + 'px';
+            mtop = height/2 + (6 * index) - 20 + 'px';
         }
 
         //create new circle
-        const newElement = $('<div>')
-                                .addClass('circle')
-                                .css({
-                                    'min-height': size + 'px',
-                                    'min-width': size + 'px',
-                                    'background-color' : color,
-                                    'top': mtop,
-                                    'left': left,
-                                })
-                                .on("click", clickHandler)
-                                .on('mouseover', mouseoverHandler)
-                                .on('mouseout', mouseoutHandler);
+        const newElement = $('<div>', {"id" : "circle", "class": "circle", "css": {
+                                                                            'min-height': size + 'px',
+                                                                            'min-width': size + 'px',
+                                                                            'background-color' : color,
+                                                                            'top': mtop,
+                                                                            'left': left,
+                                        }})
+                                        .on("click", clickHandler)
+                                        .on('mouseover', mouseoverHandler)
+                                        .on('mouseout', mouseoutHandler);
 
         return newElement;
 
