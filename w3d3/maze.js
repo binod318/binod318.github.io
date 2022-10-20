@@ -47,7 +47,7 @@ $(function(){
                     totalY = totalY + Math.abs(lastY - e.clientY);
                     lastY = e.clientY;
                 }
-                percentage = (totalX + totalY) / 700 * 100;
+                percentage = (totalX + totalY) / 670 * 100;
 
                 if(percentage > 100)
                     percentage = 100;
