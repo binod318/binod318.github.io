@@ -8,7 +8,7 @@ $(function(){
     $('.boundary')
         .on('mouseover', lose);
 
-    $('#start').on('mouseover', function(){
+    $('#start').on('click', function(){
         $('.boundary').removeClass('youlose');
         $('#status').text('Game started...');
         $('.example').text(`0%`);
@@ -59,7 +59,7 @@ $(function(){
     function lose(){
 
         //avoid multiple popups and avoid popup after win when closing popup
-        if(!$('.boundary').hasClass('youlose') && $('#status').text().indexOf('win') < 0){
+        if($('#status').text().indexOf('started') > 0 && $('#status').text().indexOf('win') < 0){
             $('.boundary').addClass('youlose');
             $('#status').text('You failed :( .\nClick the "S" to begin again.');
             alert('Sorry, you lost :(');
