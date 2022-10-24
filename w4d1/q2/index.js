@@ -1,7 +1,8 @@
 const express = require('express');
 const path = require('path');
-const app = express();
+//const flash = require('flash'); //express-session is also needed when using flash
 const session = require('express-session');
+const app = express();
 
 //middleware
 app.use(express.urlencoded({extended: true}));
@@ -12,6 +13,8 @@ app.use(session({
     saveUninitialized: true,
     secret: 'my secret'
 }));
+
+//app.use(flash());
 
 app.get('/', (req, res) => {
     //get current hour
@@ -32,7 +35,7 @@ app.get('/', (req, res) => {
                 <form action="/result" method="post">
                     <label>Name</label>
                     <input type="text" id="name" name="name">
-                    <label >Agee</label>
+                    <label >Age</label>
                     <input type="number" id="age" name="age">
                     <input type="submit" value="Submit Query">
                 </form>
@@ -43,8 +46,14 @@ app.get('/', (req, res) => {
 
 app.post('/result', (req, res) => {
     const { name, age } = req.body;
+
     req.session['name'] = name;
     req.session['age'] = age;
+
+    //set message in the flash
+    // req.flash('name', name);
+    // req.flash('age', age);
+
     res.redirect(303, '/output'); //default code is 302 and it works without 303 mentioned
 });
 
@@ -54,8 +63,20 @@ app.get('/output', (req,res) => {
     for(const key in req.session){
         map.set(key, req.session[key]);
     }
+
+    // let name = "";
+    // let age = "";
+
+    // for(let i = 0; i < res.locals.flash.length; i++){
+    //     let item = res.locals.flash[i];
+    //     if(item.type === 'name')
+    //         name = item.message;
+    //     else if(item.type === 'age')
+    //         age = item.message
+    // }
     
     res.send(`Welcome ${map.get('name')} with age ${map.get('age')}`);
+    //res.send(`Welcome ${name} with age ${age}`);
 });
 
 app.listen(3000, () => {
