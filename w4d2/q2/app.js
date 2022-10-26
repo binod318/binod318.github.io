@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/8ball', (req, res) => {
-    const index = Math.floor(Math.random(0,1) * arr.length); //floor used to avoid maximum value const value = arr[index];
+    const index = Math.floor(Math.random() * arr.length); //floor used to avoid maximum value const value = arr[index];
     value = arr[index];
     res.send(value);
 });
